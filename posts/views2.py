@@ -8,4 +8,25 @@ class postlist(generic.ListView):
     #2-- Template: Post_list.html
 
 class postdetail(generic.DetailView):
-    model=post    
+    model=post
+
+
+class addpost(generic.CreateView):
+    model=post
+    fields=['author','title','content','image','tags']
+    success_url='/blog/'
+    
+
+class editpost(generic.UpdateView):
+    model=post
+    fields=['author','title','content','image','tags']
+    success_url='/blog/'
+    template_name='posts/edit.html'
+
+
+
+class deletepost(generic.DeleteView):
+    model=post
+    success_url='/blog/'
+        
+        
